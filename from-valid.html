@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head> <title> Use of validatioh singnal </title> 
+
+<style> 
+form{
+	width: 500px;
+	heigth: auto;
+	padding: 150px 100px;
+	margin: auto;
+	background: pink;
+	display: flex;
+	font-size: 30px;
+	flex-wrap: wrap;
+	flex-direction: column;
+	flex-item: center;
+	justify-content: center;
+}
+
+input{
+	width: 100%;
+	height: auto;
+	font-size: 20px; 
+	text-align: left;
+	padding: 5px 0; 
+	border-radius: 1%;
+	color: blue;
+}
+
+button{
+	width: 30%;
+	height: auto;
+	font-size: 30px;
+	margin:auto;
+	text-align: center;
+	padding: 10px 0;
+	cursor: pointer;
+	border-radius: 10%;
+	color: red;
+}
+label{
+	color: brown;
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+
+ <form name="input">
+ 
+<label  for="firstname"> First Name: </label>
+<input type="text" name="firstname" required maxlength="20"  id="firstname">
+<br>
+<label for="lastname"> Last Name: </label>
+<input type="text" name="lastname" required maxlength="20"  id="lastnames"><br>
+
+<label for="password"> Password: </label>
+<input type="password" name="password" required maxlength="20" minlength="8"  id="passwords"><br>
+<button>Submit</button>
+
+</form>
+
+
+<script>
+const firstname = document.querySelector("#firstname"); 
+firstname.addEventListener("input", () => {
+  firstname.setCustomValidity("");
+  firstname.checkValidity();
+  console.log(firstname.checkValidity());
+});
+
+firstname.addEventListener("invalid", () => {
+  firstname.setCustomValidity("Please fill in your First Name.");
+});
+ 
+ 
+ 
+const lastname = document.querySelector("#lastnames"); 
+lastname.addEventListener("input", () => {
+  lastname.setCustomValidity("");
+  lastname.checkValidity();
+  console.log(lastname.checkValidity());
+});
+
+lastname.addEventListener("invalid", () => {
+  lastname.setCustomValidity("Please fill in your Last Name.");
+}); 
+
+
+const password = document.querySelector("#passwords"); 
+password.addEventListener("input", () => {
+  password.setCustomValidity("");
+  password.checkValidity();
+  console.log(password.checkValidity());
+});
+
+password.addEventListener("invalid", () => {
+  password.setCustomValidity("Type Your Strong Password");
+});
+</script>
+
+
+
+</body>
+</html>
